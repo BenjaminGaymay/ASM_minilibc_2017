@@ -1,7 +1,7 @@
 BITS 64
 
-	global rindex:
-	section .text
+global rindex:
+section .text
 
 rindex:
 	mov rcx, rdi

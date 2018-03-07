@@ -1,7 +1,7 @@
 BITS 64
 
-	global strchr:
-	section .text
+global strchr:
+section .text
 
 strchr: cmp byte[rdi], sil
 	jz found

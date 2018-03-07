@@ -1,7 +1,7 @@
 BITS 64
 
-	global strncmp:
-	section .text
+global strncmp:
+section .text
 
 strncmp:
 	xor rax, rax

@@ -1,7 +1,7 @@
 BITS 64
 
-	global strlen:
-	section .text
+global strlen:
+section .text
 
 strlen:
 	xor rax, rax
