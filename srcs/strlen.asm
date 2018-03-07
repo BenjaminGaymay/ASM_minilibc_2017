@@ -6,7 +6,7 @@ BITS 64
 strlen:
 	xor rax, rax
 
-while:	cmp BYTE [rdi + rax], 0
+while:	cmp byte[rdi + rax], 0
 	jz quit
 	inc rax
 	jmp while

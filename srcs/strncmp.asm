@@ -1,15 +1,17 @@
 BITS 64
 
-	global strcmp:
+	global strncmp:
 	section .text
 
-strcmp:
+strncmp:
 	xor rax, rax
 	xor rbx, rbx
 	xor rcx, rcx
 
 while:	mov al, byte[rdi + rcx]
 	mov bl, byte[rsi + rcx]
+	cmp rdx, rcx
+	je diff
 	cmp al, 0
 	jz diff
 	cmp bl, 0

@@ -13,8 +13,11 @@ LD	= ld -shared
 
 RM	= rm -f
 
-SRCS	= ./srcs/strlen.asm \
-	  ./srcs/strcmp.asm
+SRCS	= ./srcs/strlen.asm	\
+	  ./srcs/strcmp.asm	\
+	  ./srcs/strncmp.asm	\
+	  ./srcs/strchr.asm	\
+	  ./srcs/rindex.asm
 
 OBJS	= $(SRCS:.asm=.o)
 
