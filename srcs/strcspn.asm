@@ -15,7 +15,7 @@ reject:	mov r9b, byte[rsi + rcx]
 	cmp r9b, 0
 	jz doLoop
 	cmp r8b, r9b
-	jz found
+	jz quit
 	inc rcx
 	jmp reject
 
@@ -23,7 +23,4 @@ doLoop:	xor rcx, rcx
 	inc rax
 	jmp while
 
-found:	ret
-
-quit:	mov rax, 0
-	ret
+quit:	ret
