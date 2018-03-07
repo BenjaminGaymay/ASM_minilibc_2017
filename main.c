@@ -9,6 +9,7 @@ char *rindex(const char *, int);
 void *memset(void *, int, size_t);
 void *memcpy(void *, const void *, size_t);
 void *memmove(void *, const void *, size_t);
+size_t strcspn(const char *, const char *);
 
 int main(int argc, char *argv[])
 {
@@ -88,5 +89,10 @@ int main(int argc, char *argv[])
 	printf("Strcasecmp '%s' et '%s' : %d\n", a, argv[1], strcasecmp(a, argv[1]));
 	printf("Strcasecmp '%s' et '%s' : %d\n", empty, a, strcasecmp(empty, a));
 
+	printf("\n-- STRCSPN --\n");
+	memcpy(a, "abcd\0", 5);
+	printf("Strcspn '%s' et '%s' : %d\n", argv[1], a, strcspn(argv[1], a));
+	printf("Strcspn '%s' et '%s' : %d\n", a, argv[1], strcspn(a, argv[1]));
+	printf("Strcspn '%s' et '%s' : %d\n", empty, a, strcspn(empty, a));
 	return 0;
 }
