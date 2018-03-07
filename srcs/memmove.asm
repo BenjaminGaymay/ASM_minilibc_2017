@@ -4,24 +4,21 @@ global memmove
 section .text
 
 memmove: xor rcx, rcx
-	 xor r9, r9
 
-first:	mov r8b, byte[rsi]
+first:	mov r8b, byte[rsi + rcx]
+	mov byte[rbp + rcx], r8b
 	cmp rcx, rdx
-	jz initSe
-	mov byte[r9 + rcx], r8b
+	jz initS
 	inc rcx
-	inc rsi
 	jmp first
 
-initSe:	xor rcx, rcx
+initS:	xor rcx, rcx
 
-second:	mov r8b, byte[r9]
+second:	mov r8b, byte[rbp + rcx]
+	mov byte[rdi + rcx], r8b
 	cmp rcx, rdx
 	jz quit
-	mov byte[rsi + rcx], r8b
 	inc rcx
-	inc r9
 	jmp second
 
 quit:	mov rax, rdi

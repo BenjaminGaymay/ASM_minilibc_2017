@@ -10,6 +10,7 @@ void *memset(void *, int, size_t);
 void *memcpy(void *, const void *, size_t);
 void *memmove(void *, const void *, size_t);
 size_t strcspn(const char *, const char *);
+char *strpbrk(const char *s, const char *accept);
 
 int main(int argc, char *argv[])
 {
@@ -53,10 +54,17 @@ int main(int argc, char *argv[])
 	printf("Memset '%s' prend %d char '%c' :", mem, 2, 'z');
 	printf(" %s\n", memset(mem, 'z', 2));
 
+	char lol[] = "stackoverflow";
+	char *lol_1, *lol_2;
+	lol_1 = lol;
+	lol_2 = lol;
+
 	printf("\n-- MEMCPY --\n");
 	char b[] = "mlk";
 	char c[] = "poi";
 	char d[] = "jhnls";
+	char move[] = "abcde";
+
 	printf("Memcpy '%s' prend %d char de '%s' :", a, 2, b);
 	printf(" %s\n" , memcpy(a, b, 2));
 	printf("Memcpy '%s' prend %d char de '%s' :", a, 3, c);
@@ -67,11 +75,14 @@ int main(int argc, char *argv[])
 	printf(" %s\n", memcpy(a, c, 5));
 	printf("Memcpy '%s' prend %d char de '%s' :", d, 7, c);
 	printf(" %s\n", memcpy(d, c, 7));
+	printf("Memcpy '%s' prend %d char de '%s' :", lol_1 + 5, 7, lol_1);
+	printf(" %s\n", memcpy(lol_1 + 5, lol_1, 7));
 
 	printf("\n-- MEMMOVE --\n");
 	memcpy(b, "mlk", 3);
 	memcpy(c, "poi", 3);
 	memcpy(d, "jhnls", 3);
+	memcpy(move, "abcde\0", 6);
 	printf("Memmove '%s' prend %d char de '%s' :", a, 2, b);
 	printf(" %s\n", memmove(a, b, 2));
 	printf("Memmove '%s' prend %d char de '%s' :", a, 3, c);
@@ -82,6 +93,8 @@ int main(int argc, char *argv[])
 	printf(" %s\n", memmove(a, c, 5));
 	printf("Memmove '%s' prend %d char de '%s' :", d, 7, c);
 	printf(" %s\n", memmove(d, c, 7));
+	printf("Memmove '%s' prend %d char de '%s' :", lol_1 + 5, 7, lol_1);
+	printf(" %s\n", memmove(lol_2 + 5, lol_2, 7));
 
 	printf("\n-- STRCASECMP --\n");
 	memcpy(a, "aBdE\0", 5);
@@ -94,5 +107,15 @@ int main(int argc, char *argv[])
 	printf("Strcspn '%s' et '%s' : %d\n", argv[1], a, strcspn(argv[1], a));
 	printf("Strcspn '%s' et '%s' : %d\n", a, argv[1], strcspn(a, argv[1]));
 	printf("Strcspn '%s' et '%s' : %d\n", empty, a, strcspn(empty, a));
+
+	printf("\n-- STRPBRK --\n");
+	memcpy(a, "abcd\0", 5);
+	printf("Strpbrk '%s' et '%s' : %s\n", argv[1], a, strpbrk(argv[1], a));
+	printf("Strpbrk '%s' et '%s' : %s\n", a, argv[1], strpbrk(a, argv[1]));
+	printf("Strpbrk '%s' et '%s' : %s\n", empty, a, strpbrk(empty, a));
+	printf("Strpbrk '%s' et '%s' : %s\n", a, empty, strpbrk(a, empty));
 	return 0;
+
+
+
 }
