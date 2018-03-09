@@ -11,6 +11,7 @@ void *memcpy(void *, const void *, size_t);
 void *memmove(void *, const void *, size_t);
 size_t strcspn(const char *, const char *);
 char *strpbrk(const char *s, const char *accept);
+char *strstr(const char *, const char *);
 
 int main(int argc, char *argv[])
 {
@@ -114,6 +115,13 @@ int main(int argc, char *argv[])
 	printf("Strpbrk '%s' et '%s' : %s\n", a, argv[1], strpbrk(a, argv[1]));
 	printf("Strpbrk '%s' et '%s' : %s\n", empty, a, strpbrk(empty, a));
 	printf("Strpbrk '%s' et '%s' : %s\n", a, empty, strpbrk(a, empty));
+
+	printf("\n-- STRSTR --\n");
+	printf("Strstr '%s' dans '%s' : %s\n", a, argv[1], strstr(argv[1], a));
+	printf("Strstr '%s' dans '%s' : %s\n", argv[1], a, strstr(a, argv[1]));
+	printf("Strstr '%s' dans '%s' : %s\n", a, empty, strstr(empty, a));
+	printf("Strstr '%s' dans '%s' : %s\n", empty, a, strstr(a, empty));
+	printf("Strstr '%s' dans '%s' : %s\n", empty, empty, strstr(empty, empty));
 	return 0;
 
 

@@ -23,7 +23,8 @@ SRCS	= ./srcs/strlen.asm	\
 	  ./srcs/memmove.asm	\
 	  ./srcs/strcasecmp.asm	\
 	  ./srcs/strcspn.asm	\
-	  ./srcs/strpbrk.asm
+	  ./srcs/strpbrk.asm	\
+	  ./srcs/strstr.asm
 
 OBJS	= $(SRCS:.asm=.o)
 
