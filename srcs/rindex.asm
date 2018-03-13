@@ -21,5 +21,5 @@ while:	dec rdi
 found:	mov rax, rdi
 	ret
 
-nFound:	mov rax, 0
+nFound:	xor rax, rax
 	ret

@@ -8,10 +8,10 @@ strncmp:
 	xor rbx, rbx
 	xor rcx, rcx
 
-while:	mov al, byte[rdi + rcx]
-	mov bl, byte[rsi + rcx]
-	cmp rdx, rcx
+while:	cmp rdx, rcx
 	je diff
+	mov al, byte[rdi + rcx]
+	mov bl, byte[rsi + rcx]
 	cmp al, 0
 	jz diff
 	cmp bl, 0
