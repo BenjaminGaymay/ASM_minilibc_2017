@@ -1,11 +1,10 @@
 BITS 64
-
-global strcmp:
-section .text
+	global strcmp:
+	section .text
 
 strcmp:
 	xor rax, rax
-	xor rbx, rbx
+	xor rdx, rdx
 	xor rcx, rcx
 
 while:	mov al, byte[rdi + rcx]
@@ -16,7 +15,7 @@ while:	mov al, byte[rdi + rcx]
 	jz diff
 	cmp al, bl
 	jne diff
-	inc rcx
+	inc rax
 	jmp while
 
 diff:	sub al, bl

@@ -12,7 +12,7 @@ TMP_WITH="$(./a.out "$1" | tr '\n' '/')"
 
 unset LD_LIBRARY_PATH
 gcc main.c > /dev/null
-TMP_WITHOUT="$(./a.out $1 | tr '\n' '/')"
+TMP_WITHOUT="$(./a.out "$1" | tr '\n' '/')"
 rm a.out
 
 IFS='/' read -a WITH <<< "$TMP_WITH"

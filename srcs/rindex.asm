@@ -11,11 +11,11 @@ len:	cmp byte[rdi], 0
 	inc rdi
 	jmp len
 
-while:	dec rdi
-	cmp byte[rdi], sil
+while:	cmp byte[rdi], sil
 	jz found
 	cmp rdi, rcx
 	jz nFound
+	dec rdi
 	jmp while
 
 found:	mov rax, rdi
