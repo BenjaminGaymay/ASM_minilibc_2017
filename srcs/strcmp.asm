@@ -5,7 +5,7 @@ section .text
 
 strcmp:
 	xor rax, rax
-	xor rdx, rdx
+	xor rbx, rbx
 	xor rcx, rcx
 
 while:	mov al, byte[rdi + rcx]
@@ -16,7 +16,7 @@ while:	mov al, byte[rdi + rcx]
 	jz diff
 	cmp al, bl
 	jne diff
-	inc rax
+	inc rcx
 	jmp while
 
 diff:	sub al, bl
